@@ -18,7 +18,6 @@ export class Produit {
     length: 100,
   })
   marque: string;
-
   @Column({
     nullable: false,
     type: 'varchar',
