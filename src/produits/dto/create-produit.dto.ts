@@ -1,7 +1,6 @@
 import { IsBoolean, IsNumber, IsString, IsArray } from 'class-validator';
 
 export class CreateProduitDto {
-  @IsString()
   refProduit: string;
 
   @IsString()
@@ -28,6 +27,5 @@ export class CreateProduitDto {
   @IsString()
   lien_video: string;
 
-  @IsArray()
   tags: string[];
 }

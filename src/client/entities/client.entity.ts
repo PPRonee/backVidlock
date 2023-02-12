@@ -61,3 +61,5 @@ export class Client {
   })
   Password: string;
 }
+
+// is unique pose problem voir comment gerer l erreur 500 que ca produit quand des email son identique
