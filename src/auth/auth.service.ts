@@ -2,6 +2,7 @@ import {
   ConflictException,
   Injectable,
   InternalServerErrorException,
+  UnauthorizedException,
 } from '@nestjs/common';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import * as bcrypt from 'bcrypt';
@@ -9,12 +10,14 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Client } from 'src/client/entities/client.entity';
 import { Repository } from 'typeorm';
 import { LoginDto } from './dto/login-auth.dto';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
   constructor(
     @InjectRepository(Client)
     private clientRepository: Repository<Client>,
+    private jwtService: JwtService,
   ) {}
 
   async register(createAuthDto: CreateAuthDto) {
@@ -72,5 +75,17 @@ export class AuthService {
     }
   }
 
-  async login(loginDto: LoginDto) {}
+  async login(loginDto: LoginDto) {
+    const { Nom, Email, Password } = loginDto;
+    const client = await this.clientRepository.findOneBy({ Email });
+    // a l origin findOneBy ({ username})
+
+    if (client && (await bcrypt.compare(Password, client.Password))) {
+      const payload = { Nom };
+      const accessToken = await this.jwtService.sign(payload);
+      return { accessToken };
+    } else {
+      throw new UnauthorizedException(' identifiants incorrect, try again...');
+    }
+  }
 }
