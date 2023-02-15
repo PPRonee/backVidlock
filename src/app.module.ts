@@ -6,6 +6,7 @@ import { ProduitsModule } from './produits/produits.module';
 import { ClientModule } from './client/client.module';
 import { Client } from './client/entities/client.entity';
 import { Produit } from './produits/entities/produit.entity';
+import { AuthModule } from './auth/auth.module';
 import * as dotenv from 'dotenv';
 
 dotenv.config({ path: '.env' });
@@ -28,6 +29,7 @@ dotenv.config({ path: '.env' });
 
     ProduitsModule,
     ClientModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
