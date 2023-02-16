@@ -8,7 +8,7 @@ import { AuthModule } from 'src/auth/auth.module';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Client]), PassportModule, AuthModule],
-  //ici la methode forfeature permet de gerer la table produit
+  //ici la methode forfeature permet de gerer la table client
   controllers: [ClientController],
   providers: [ClientService],
 })

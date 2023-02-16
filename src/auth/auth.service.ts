@@ -49,15 +49,6 @@ export class AuthService {
       Password: hashedPassword,
     });
 
-    /*const valeur = 1;
-    const objet = {
-      propriété1: valeur,
-      propriété2: true,
-    };
-    const objet2 = {
-      valeur,
-    };*/
-
     try {
       // enregistrement de l'entité user
       const createdClient = await this.clientRepository.save(client);
