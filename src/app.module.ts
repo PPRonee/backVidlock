@@ -7,7 +7,11 @@ import { ClientModule } from './client/client.module';
 import { Client } from './client/entities/client.entity';
 import { Produit } from './produits/entities/produit.entity';
 import { AuthModule } from './auth/auth.module';
+import { ReservationModule } from './reservation/reservation.module';
 import * as dotenv from 'dotenv';
+import { Reservation } from './reservation/entities/reservation.entity';
+import { AdminModule } from './admin/admin.module';
+import { Admin } from './admin/entities/admin.entity';
 
 dotenv.config({ path: '.env' });
 //Pour indiquer ou est notre environnement
@@ -22,7 +26,7 @@ dotenv.config({ path: '.env' });
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [Client, Produit],
+      entities: [Client, Produit, Reservation, Admin],
       synchronize: process.env.MODE === 'DEV' ? true : false,
       //'dev'? true permet de modifié la base de données uniquement en mode dev
     }),
@@ -30,6 +34,8 @@ dotenv.config({ path: '.env' });
     ProduitsModule,
     ClientModule,
     AuthModule,
+    ReservationModule,
+    AdminModule,
   ],
   controllers: [AppController],
   providers: [AppService],
