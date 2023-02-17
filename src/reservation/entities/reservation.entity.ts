@@ -47,4 +47,10 @@ export class Reservation {
     length: 100,
   })
   Nom_Admin: string;
+
+  @Column({
+    type: 'varchar',
+    length: 100,
+  })
+  Statut_Commande: string;
 }
