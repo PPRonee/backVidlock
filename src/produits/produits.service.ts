@@ -34,8 +34,11 @@ export class ProduitsService {
     updateProduitDto: UpdateProduitDto,
   ): Promise<Produit> {
     const upProduit = await this.findOne(id);
+    upProduit.descriptif = updateProduitDto.descriptif;
+    upProduit.stock_initial = updateProduitDto.stock_initial;
     upProduit.prix_unit = updateProduitDto.prix_unit;
     upProduit.lien_image = updateProduitDto.lien_image;
+    upProduit.lien_video = updateProduitDto.lien_video;
     upProduit.stock_disponible = updateProduitDto.stock_disponible;
     upProduit.tags = updateProduitDto.tags;
     return await this.produitRepository.save(upProduit);

@@ -35,7 +35,9 @@ export class MessageService {
     updateMessageDto: UpdateMessageDto,
   ): Promise<Message> {
     const upMessage = await this.findOne(id);
+
     upMessage.observation = updateMessageDto.observation;
+
     return await this.messageRepository.save(upMessage);
   }
 
