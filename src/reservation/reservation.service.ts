@@ -33,8 +33,19 @@ export class ReservationService {
     return reservationFound;
   }
 
-  update(id: number, updateReservationDto: UpdateReservationDto) {
-    return `This action updates a #${id} reservation`;
+  async update(
+    id: number,
+    updateReservationDto: UpdateReservationDto,
+  ): Promise<Reservation> {
+    const upReservation = await this.findOne(id);
+
+    upReservation.Date_debut = updateReservationDto.Date_debut;
+    upReservation.Date_fin = updateReservationDto.Date_fin;
+    upReservation.Produit = updateReservationDto.Produit;
+    upReservation.Nom_Admin = updateReservationDto.Nom_Admin;
+    upReservation.Statut_Commande = updateReservationDto.Statut_Commande;
+
+    return await this.reservationRepository.save(upReservation);
   }
 
   async remove(id: number) {

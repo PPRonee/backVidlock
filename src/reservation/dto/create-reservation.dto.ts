@@ -1,14 +1,15 @@
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 export class CreateReservationDto {
   @IsString()
-  Date: string;
+  Date_Resa: string;
 
   @IsNotEmpty({
     message: ' *ce champ est obligatoire',
   })
   Nom_client: string;
 
+  @IsOptional()
   Num_reservations: number;
 
   @IsNotEmpty({

@@ -5,7 +5,10 @@ export class Reservation {
   @PrimaryGeneratedColumn()
   id: number;
 
-  Date: string;
+  @Column({
+    nullable: true,
+  })
+  Date_Resa: string;
 
   @Column({
     nullable: false,
@@ -49,6 +52,7 @@ export class Reservation {
   Nom_Admin: string;
 
   @Column({
+    nullable: true,
     type: 'varchar',
     length: 100,
   })

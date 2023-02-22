@@ -26,20 +26,20 @@ export class ReservationController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: number) {
     return this.reservationService.findOne(+id);
   }
 
   @Patch(':id')
   update(
-    @Param('id') id: string,
+    @Param('id') id: number,
     @Body() updateReservationDto: UpdateReservationDto,
   ) {
     return this.reservationService.update(+id, updateReservationDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  remove(@Param('id') id: number) {
     return this.reservationService.remove(+id);
   }
 }
