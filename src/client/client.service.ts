@@ -36,6 +36,7 @@ export class ClientService {
     upClient.Num_Siret = updateClientDto.Num_Siret;
     upClient.Adresse = updateClientDto.Adresse;
     upClient.Email = updateClientDto.Email;
+    upClient.Tel = updateClientDto.Tel;
     upClient.Password = updateClientDto.Password;
 
     return await this.clientRepository.save(upClient);

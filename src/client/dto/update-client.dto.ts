@@ -31,5 +31,11 @@ export class UpdateClientDto {
     message: ' *ce champ est obligatoire',
   })
   @IsString()
+  Tel: string;
+
+  @IsNotEmpty({
+    message: ' *ce champ est obligatoire',
+  })
+  @IsString()
   Password: string;
 }

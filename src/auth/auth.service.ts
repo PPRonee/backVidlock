@@ -30,6 +30,7 @@ export class AuthService {
     const Num_Siret = createAuthDto.Num_Siret;
     const Adresse = createAuthDto.Adresse;
     const Password = createAuthDto.Password;
+    const Tel = createAuthDto.Tel;
     const Email = createAuthDto.Email;
 
     // hashage du mot de passe
@@ -46,6 +47,7 @@ export class AuthService {
       Num_Siret,
       Adresse,
       Email,
+      Tel,
       Password: hashedPassword,
     });
 

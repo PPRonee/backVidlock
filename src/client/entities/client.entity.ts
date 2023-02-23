@@ -59,6 +59,13 @@ export class Client {
     type: 'varchar',
     length: 255,
   })
+  Tel: string;
+
+  @Column({
+    nullable: false,
+    type: 'varchar',
+    length: 255,
+  })
   Password: string;
 }
 

@@ -6,5 +6,6 @@ export class CreateAuthDto {
   Num_Siret: string;
   Adresse: string;
   Email: string;
+  Tel: string;
   Password: string;
 }
