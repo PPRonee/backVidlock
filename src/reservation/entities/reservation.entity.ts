@@ -45,7 +45,7 @@ export class Reservation {
   Produit: string[];
 
   @Column({
-    nullable: false,
+    nullable: true,
     type: 'varchar',
     length: 100,
   })

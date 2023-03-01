@@ -18,12 +18,20 @@ export class Produit {
     length: 100,
   })
   marque: string;
+
   @Column({
     nullable: false,
     type: 'varchar',
     length: 100,
   })
   categorie: string;
+
+  @Column({
+    nullable: true,
+    type: 'varchar',
+    length: 100,
+  })
+  Type: string;
 
   @Column({
     nullable: true,

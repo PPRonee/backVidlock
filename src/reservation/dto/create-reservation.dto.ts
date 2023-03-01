@@ -27,6 +27,7 @@ export class CreateReservationDto {
   })
   Produit: string[];
 
+  @IsOptional()
   @IsString()
   Nom_Admin: string;
 }

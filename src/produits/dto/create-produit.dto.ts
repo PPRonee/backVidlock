@@ -1,3 +1,4 @@
+import { Type } from 'class-transformer';
 import { IsBoolean, IsNumber, IsString, IsArray } from 'class-validator';
 
 export class CreateProduitDto {
@@ -8,6 +9,9 @@ export class CreateProduitDto {
 
   @IsString()
   categorie: string;
+
+  @IsString()
+  Type: string;
 
   @IsString()
   descriptif: string;
