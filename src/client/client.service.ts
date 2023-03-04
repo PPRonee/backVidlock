@@ -42,28 +42,6 @@ export class ClientService {
     return await this.clientRepository.save(upClient);
   }
 
-  // async update(id: number, updateClientDto: UpdateClientDto): Promise<Client> {
-  //   const upClient = await this.findOne(id);
-
-  //   if (upClient.Proffession !== undefined) {
-  //     upClient.Proffession = updateClientDto.Proffession;
-  //   }
-  //   if (upClient.Num_Siret !== undefined) {
-  //     upClient.Num_Siret = updateClientDto.Num_Siret;
-  //   }
-  //   if (upClient.Adresse !== undefined) {
-  //     upClient.Adresse = updateClientDto.Adresse;
-  //   }
-  //   if (upClient.Email !== undefined) {
-  //     upClient.Email = updateClientDto.Email;
-  //   }
-  //   if (upClient.Password !== undefined) {
-  //     upClient.Password = updateClientDto.Password;
-
-  //     return await this.clientRepository.save(upClient);
-  //   }
-  // }
-
   async remove(id: number) {
     const result = await this.clientRepository.delete({ id });
     if (result.affected === 0) {

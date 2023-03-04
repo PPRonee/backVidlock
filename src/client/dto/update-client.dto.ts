@@ -1,11 +1,13 @@
 import { PartialType } from '@nestjs/mapped-types';
-import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { CreateClientDto } from './create-client.dto';
 
 export class UpdateClientDto {
+  @IsOptional()
   @IsString()
   Proffession: string;
 
+  @IsOptional()
   @IsString()
   Num_Siret: string;
 

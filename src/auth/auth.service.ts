@@ -74,7 +74,7 @@ export class AuthService {
     // a l origin findOneBy ({ username})
 
     if (client && (await bcrypt.compare(Password, client.Password))) {
-      const payload = { Nom };
+      const payload = { Nom, Siret: client.Num_Siret };
       const accessToken = await this.jwtService.sign(payload);
       return { accessToken };
     } else {

@@ -53,6 +53,6 @@ export class ReservationService {
     if (result.affected === 0) {
       throw new NotFoundException(`Pas de reservation avec l'id: ${id}`);
     }
-    return `le client avec l'id: ${id} a été supprimé!`;
+    return `la reservation avec l'id: ${id} a été supprimé!`;
   }
 }
