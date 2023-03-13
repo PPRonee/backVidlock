@@ -41,7 +41,7 @@ export class ReservationService {
 
     upReservation.Date_debut = updateReservationDto.Date_debut;
     upReservation.Date_fin = updateReservationDto.Date_fin;
-    upReservation.Produit = updateReservationDto.Produit;
+    // upReservation.Produit = updateReservationDto.Produit;
     upReservation.Nom_Admin = updateReservationDto.Nom_Admin;
     upReservation.Statut_Commande = updateReservationDto.Statut_Commande;
 

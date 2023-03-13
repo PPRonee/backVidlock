@@ -1,4 +1,15 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Admin } from 'src/admin/entities/admin.entity';
+import { Client } from 'src/client/entities/client.entity';
+import { Produit } from 'src/produits/entities/produit.entity';
+import {
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity('reservation')
 export class Reservation {
@@ -15,7 +26,7 @@ export class Reservation {
     type: 'varchar',
     length: 100,
   })
-  Nom_client: string;
+  Nom_reservation: string;
 
   @Column({
     nullable: false,
@@ -37,12 +48,12 @@ export class Reservation {
   })
   Date_fin: string;
 
-  @Column({
-    nullable: false,
-    type: 'varchar',
-    length: 100,
-  })
-  Produit: string[];
+  // @Column({
+  //   nullable: false,
+  //   type: 'varchar',
+  //   length: 100,
+  // })
+  // Produit: string[];
 
   @Column({
     nullable: true,
@@ -57,4 +68,14 @@ export class Reservation {
     length: 100,
   })
   Statut_Commande: string;
+
+  @OneToMany(() => Client, (client) => client.reservation, { eager: false })
+  client: Client;
+
+  @OneToMany(() => Admin, (admin) => admin.reservation, { eager: false })
+  admin: Admin;
+
+  @ManyToMany(() => Produit, (produit) => produit, { eager: true })
+  @JoinTable()
+  produit: Produit[];
 }

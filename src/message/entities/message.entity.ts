@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Client } from 'src/client/entities/client.entity';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('message')
 //entity: Message represente le nom de la table
@@ -33,4 +34,7 @@ export class Message {
     length: 255,
   })
   observation: string;
+
+  @OneToMany(() => Client, (client) => client.message, { eager: false })
+  client: Client;
 }

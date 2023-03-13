@@ -1,4 +1,13 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Message } from 'src/message/entities/message.entity';
+import { Reservation } from 'src/reservation/entities/reservation.entity';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity('client')
 export class Client {
@@ -67,6 +76,16 @@ export class Client {
     length: 255,
   })
   Password: string;
+
+  @ManyToOne(() => Reservation, (reservation) => reservation.client, {
+    eager: true,
+  })
+  reservation: Reservation[];
+
+  @ManyToOne(() => Message, (message) => message.client, {
+    eager: true,
+  })
+  message: Message[];
 }
 
 // is unique pose problem voir comment gerer l erreur 500 que ca produit quand des email son identique

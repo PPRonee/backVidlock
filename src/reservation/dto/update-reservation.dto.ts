@@ -11,9 +11,9 @@ export class UpdateReservationDto {
   @IsOptional()
   Date_fin: string;
 
-  @IsString()
-  @IsOptional()
-  Produit: string[];
+  // @IsString()
+  // @IsOptional()
+  // Produit: string[];
 
   @IsString()
   @IsOptional()

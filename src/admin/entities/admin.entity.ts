@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Reservation } from 'src/reservation/entities/reservation.entity';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('admin')
 export class Admin {
@@ -26,4 +27,9 @@ export class Admin {
     length: 255,
   })
   Password: string;
+
+  @ManyToOne(() => Reservation, (reservation) => reservation.admin, {
+    eager: true,
+  })
+  reservation: Reservation[];
 }
