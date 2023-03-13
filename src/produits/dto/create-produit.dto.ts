@@ -31,5 +31,5 @@ export class CreateProduitDto {
   @IsString()
   lien_video: string;
 
-  tags: string[];
+  // tags: string[];
 }

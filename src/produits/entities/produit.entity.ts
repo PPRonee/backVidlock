@@ -71,10 +71,10 @@ export class Produit {
   })
   lien_video: string;
 
-  @Column({
-    nullable: false,
-    type: 'varchar',
-    length: 250,
-  })
-  tags: string[];
+  // @Column({
+  //   nullable: false,
+  //   type: 'varchar',
+  //   length: 250,
+  // })
+  // tags: string[];
 }

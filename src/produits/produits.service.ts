@@ -40,7 +40,7 @@ export class ProduitsService {
     upProduit.lien_image = updateProduitDto.lien_image;
     upProduit.lien_video = updateProduitDto.lien_video;
     upProduit.stock_disponible = updateProduitDto.stock_disponible;
-    upProduit.tags = updateProduitDto.tags;
+    // upProduit.tags = updateProduitDto.tags;
     return await this.produitRepository.save(upProduit);
   }
 

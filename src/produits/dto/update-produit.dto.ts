@@ -33,7 +33,7 @@ export class UpdateProduitDto {
   @IsString()
   lien_video: string;
 
-  @IsOptional()
-  @IsArray()
-  tags: string[];
+  // @IsOptional()
+  // @IsArray()
+  // tags: string[];
 }

@@ -54,7 +54,7 @@ export class AuthService {
     try {
       // enregistrement de l'entité user
       const createdClient = await this.clientRepository.save(client);
-      console.log('je suis la');
+      // console.log('je suis la');
       delete createdClient.Password;
       console.log('XXXXXXXX  Fin des operations  XXXXXXXX');
       return createdClient;
