@@ -55,18 +55,4 @@ export class AdminService {
       }
     }
   }
-
-  async loginAdmin(loginAdminDto: LoginAdminDto) {
-    const { Nom, Email, Password } = loginAdminDto;
-    const Admin = await this.adminRepository.findOneBy({ Email });
-    // a l origin findOneBy ({ username})
-
-    if (Admin && (await bcrypt.compare(Password, Admin.Password))) {
-      const payload = { Nom };
-      const accessToken = await this.jwtService.sign(payload);
-      return { accessToken };
-    } else {
-      throw new UnauthorizedException(' identifiants incorrect, try again...');
-    }
-  }
 }

@@ -21,9 +21,4 @@ export class AdminController {
     console.log('je suis ici');
     return this.adminService.registerAdmin(createAuthDto);
   }
-
-  @Post('/login')
-  login(@Body() loginDto: LoginAdminDto): Promise<{ accessToken: string }> {
-    return this.adminService.loginAdmin(loginDto);
-  }
 }

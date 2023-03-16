@@ -5,7 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { PassportModule } from '@nestjs/passport';
 
 import { Admin } from './entities/admin.entity';
-import { JwtStrategyAdmin } from './jwt.strategyAdmin';
+
 import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from 'src/auth/jwt.strategy';
 import { AuthModule } from 'src/auth/auth.module';
@@ -23,6 +23,6 @@ import { Client } from 'src/client/entities/client.entity';
   ],
   controllers: [AdminController],
   providers: [AdminService, JwtStrategy],
-  exports: [JwtStrategy, PassportModule],
+  // exports: [JwtStrategy, PassportModule],
 })
 export class AdminModule {}

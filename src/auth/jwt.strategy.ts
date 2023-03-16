@@ -29,7 +29,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     if (Role === 'Admin') {
       console.log('role admin');
 
-      user = await this.clientRepository.findOneBy({ Nom });
+      user = await this.adminRepository.findOneBy({ Nom });
     } else {
       console.log('role client');
       user = await this.clientRepository.findOneBy({ Nom });
