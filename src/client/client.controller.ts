@@ -12,8 +12,8 @@ import { AuthGuard } from '@nestjs/passport';
 import { ClientService } from './client.service';
 import { CreateClientDto } from './dto/create-client.dto';
 import { UpdateClientDto } from './dto/update-client.dto';
+// import { PassportModule } from '@nestjs/passport';
 
-// @UseGuards(AuthGuard())
 @Controller('client')
 export class ClientController {
   constructor(private readonly clientService: ClientService) {}

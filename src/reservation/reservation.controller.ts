@@ -6,12 +6,15 @@ import {
   Patch,
   Param,
   Delete,
+  UseGuards,
 } from '@nestjs/common';
 import { ReservationService } from './reservation.service';
 import { CreateReservationDto } from './dto/create-reservation.dto';
 import { UpdateReservationDto } from './dto/update-reservation.dto';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('reservation')
+// @UseGuards(AuthGuard())
 export class ReservationController {
   constructor(private readonly reservationService: ReservationService) {}
 

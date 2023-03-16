@@ -7,10 +7,11 @@ export class CreateReservationDto {
   @IsNotEmpty({
     message: ' *ce champ est obligatoire',
   })
+  // @IsOptional()
   Nom_client: string;
 
-  @IsOptional()
-  Num_reservations: number;
+  // @IsOptional()
+  // Num_reservations: number;
 
   @IsNotEmpty({
     message: ' *ce champ est obligatoire',
@@ -22,12 +23,11 @@ export class CreateReservationDto {
   })
   Date_fin: string;
 
-  // @IsNotEmpty({
-  //   message: ' *ce champ est obligatoire',
-  // })
-  // Produit: string[];
-
   @IsOptional()
   @IsString()
   Nom_Admin: string;
+
+  @IsString()
+  @IsOptional()
+  Statut_Commande: string;
 }

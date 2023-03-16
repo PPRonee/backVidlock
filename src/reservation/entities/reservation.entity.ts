@@ -22,17 +22,17 @@ export class Reservation {
   Date_Resa: string;
 
   @Column({
-    nullable: false,
+    nullable: true,
     type: 'varchar',
     length: 50,
   })
-  Nom_reservation: string;
+  Nom_client: string;
 
-  @Column({
-    nullable: false,
-    type: 'int',
-  })
-  Num_reservations: number;
+  // @Column({
+  //   nullable: false,
+  //   type: 'int',
+  // })
+  // Num_reservations: number;
 
   @Column({
     nullable: false,
