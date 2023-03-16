@@ -66,7 +66,7 @@ export class Client {
   @Column({
     nullable: false,
     type: 'varchar',
-    length: 255,
+    length: 20,
   })
   Tel: string;
 

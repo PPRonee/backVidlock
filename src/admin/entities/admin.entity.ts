@@ -9,7 +9,7 @@ export class Admin {
   @Column({
     nullable: false,
     type: 'varchar',
-    length: 100,
+    length: 20,
   })
   Nom: string;
 

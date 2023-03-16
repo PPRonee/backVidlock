@@ -6,16 +6,21 @@ import {
   Patch,
   Param,
   Delete,
+  UseGuards,
 } from '@nestjs/common';
 import { MessageService } from './message.service';
 import { CreateMessageDto } from './dto/create-message.dto';
 import { UpdateMessageDto } from './dto/update-message.dto';
+import { AuthGuard } from '@nestjs/passport';
+import { Admin } from 'src/admin/entities/admin.entity';
 
 @Controller('message')
+@UseGuards(AuthGuard())
 export class MessageController {
   constructor(private readonly messageService: MessageService) {}
 
   @Post()
+  // @UseGuards(AuthGuard())
   create(@Body() createMessageDto: CreateMessageDto) {
     return this.messageService.create(createMessageDto);
   }

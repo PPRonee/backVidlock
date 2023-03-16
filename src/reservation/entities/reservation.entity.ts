@@ -24,27 +24,27 @@ export class Reservation {
   @Column({
     nullable: false,
     type: 'varchar',
-    length: 100,
+    length: 50,
   })
   Nom_reservation: string;
 
   @Column({
     nullable: false,
-    type: 'float',
+    type: 'int',
   })
   Num_reservations: number;
 
   @Column({
     nullable: false,
     type: 'varchar',
-    length: 100,
+    length: 50,
   })
   Date_debut: string;
 
   @Column({
     nullable: false,
     type: 'varchar',
-    length: 100,
+    length: 50,
   })
   Date_fin: string;
 
@@ -58,14 +58,14 @@ export class Reservation {
   @Column({
     nullable: true,
     type: 'varchar',
-    length: 100,
+    length: 50,
   })
   Nom_Admin: string;
 
   @Column({
     nullable: true,
     type: 'varchar',
-    length: 100,
+    length: 50,
   })
   Statut_Commande: string;
 

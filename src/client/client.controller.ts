@@ -24,21 +24,25 @@ export class ClientController {
   }
 
   @Get()
+  @UseGuards(AuthGuard())
   findAll() {
     return this.clientService.findAll();
   }
 
   @Get(':id')
+  @UseGuards(AuthGuard())
   findOne(@Param('id') id: number) {
     return this.clientService.findOne(+id);
   }
 
   @Patch(':id')
+  @UseGuards(AuthGuard())
   update(@Param('id') id: number, @Body() updateClientDto: UpdateClientDto) {
     return this.clientService.update(+id, updateClientDto);
   }
 
   @Delete(':id')
+  @UseGuards(AuthGuard())
   remove(@Param('id') id: number) {
     return this.clientService.remove(+id);
   }

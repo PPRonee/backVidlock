@@ -21,8 +21,13 @@ export class AuthController {
     return this.authService.register(createAuthDto);
   }
 
-  @Post('/login')
-  login(@Body() loginDto: LoginDto): Promise<{ accessToken: string }> {
-    return this.authService.login(loginDto);
+  @Post('/login/client')
+  loginClient(@Body() loginDto: LoginDto): Promise<{ accessToken: string }> {
+    return this.authService.loginClient(loginDto);
+  }
+
+  @Post('/login/admin')
+  loginAdmin(@Body() loginDto: LoginDto): Promise<{ accessToken: string }> {
+    return this.authService.loginAdmin(loginDto);
   }
 }

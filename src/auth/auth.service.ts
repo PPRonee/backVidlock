@@ -11,12 +11,15 @@ import { Client } from 'src/client/entities/client.entity';
 import { Repository } from 'typeorm';
 import { LoginDto } from './dto/login-auth.dto';
 import { JwtService } from '@nestjs/jwt';
+import { Admin } from 'src/admin/entities/admin.entity';
 
 @Injectable()
 export class AuthService {
   constructor(
     @InjectRepository(Client)
     private clientRepository: Repository<Client>,
+    @InjectRepository(Admin)
+    private adminRepository: Repository<Admin>,
     private jwtService: JwtService,
   ) {}
 
@@ -68,13 +71,27 @@ export class AuthService {
     }
   }
 
-  async login(loginDto: LoginDto) {
+  async loginClient(loginDto: LoginDto) {
     const { Nom, Email, Password } = loginDto;
     const client = await this.clientRepository.findOneBy({ Email });
     // a l origin findOneBy ({ username})
 
     if (client && (await bcrypt.compare(Password, client.Password))) {
-      const payload = { Nom, Siret: client.Num_Siret };
+      const payload = { Nom, Siret: client.Num_Siret, Role: 'Client' };
+      const accessToken = await this.jwtService.sign(payload);
+      return { accessToken };
+    } else {
+      throw new UnauthorizedException(' identifiants incorrect, try again...');
+    }
+  }
+
+  async loginAdmin(loginDto: LoginDto) {
+    const { Nom, Email, Password } = loginDto;
+    const admin = await this.adminRepository.findOneBy({ Email });
+    // a l origin findOneBy ({ username})
+
+    if (admin && (await bcrypt.compare(Password, admin.Password))) {
+      const payload = { Nom, Role: 'Admin' };
       const accessToken = await this.jwtService.sign(payload);
       return { accessToken };
     } else {

@@ -21,7 +21,7 @@ export class JwtStrategyAdmin extends PassportStrategy(Strategy) {
 
   // IMPORTANT IL FAUT GARDER CE NOM DE METHODE
   async validate(payload: any): Promise<Admin> {
-    console.log('validate');
+    console.log('validate jwt strategy admin');
     const { Nom } = payload;
     const user: Admin = await this.adminRepository.findOneBy({ Nom });
 
