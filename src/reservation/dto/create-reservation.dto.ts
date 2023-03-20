@@ -1,4 +1,12 @@
-import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import {
+  IsArray,
+  isArray,
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsString,
+} from 'class-validator';
+import { Produit } from 'src/produits/entities/produit.entity';
 
 export class CreateReservationDto {
   @IsString()
@@ -30,4 +38,11 @@ export class CreateReservationDto {
   @IsString()
   @IsOptional()
   Statut_Commande: string;
+
+  @IsNumber()
+  @IsOptional()
+  Prix_Total: number;
+
+  @IsArray()
+  produit: Produit[];
 }

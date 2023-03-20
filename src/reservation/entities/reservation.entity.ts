@@ -48,12 +48,11 @@ export class Reservation {
   })
   Date_fin: string;
 
-  // @Column({
-  //   nullable: false,
-  //   type: 'varchar',
-  //   length: 100,
-  // })
-  // Produit: string[];
+  @Column({
+    nullable: true,
+    type: 'float',
+  })
+  Prix_Total: number;
 
   @Column({
     nullable: true,
